@@ -1,4 +1,4 @@
-package com.briangershon.demo;
+package com.briangershon.ranktank;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
