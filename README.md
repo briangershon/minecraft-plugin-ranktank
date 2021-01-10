@@ -20,7 +20,7 @@ You should now have your new plugin jar file in `target` folder.
 
 ## To install on your Spigot compatable Minecraft Server
 
-Copy `target/PluginDemo-n.n.n.jar` to your server `/plugin` folder, and reload server configuration (or just restart server).
+Copy `target/RankTankPlugin-n.n.n.jar` to your server `/plugin` folder, and reload server configuration (or just restart server).
 
 You should see these two messages in your server console:
 
