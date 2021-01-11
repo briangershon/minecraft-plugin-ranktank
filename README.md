@@ -2,6 +2,28 @@
 
 A Minecraft plugin for assigning players a rank and showing top ranks on a scoreboard.
 
+    /ranktank set <playerName> <rank>
+    /ranktank list
+
+All players joining the server will start at the `Member` rank.
+
+Ranks are (highest rank listed first):
+
+1. MVP++
+2. MVP+
+3. MVP
+4. VIP+
+5. VIP
+6. Member (default)
+
+Player data is saved on the server in a custom YAML file.
+
+To run `/ranktank` a player needs to have the `ranktank.set` permission.
+
+## Which server API does this plugin run on?
+
+Supports API version 1.13 or higher.
+
 Tested plugin on these servers:
 * Spigot 1.16.4-R0.1-SNAPSHOT (compile with Java 14 on MacOS) when testing plugin locally.
 * Paper 1.16.4 (compiled with Java 8) running on a paid hosting service using an older version of Java.
