@@ -5,9 +5,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -31,6 +33,7 @@ public class App extends JavaPlugin {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		getCommand("ranktank").setExecutor(new RankTankCommand(this));
 	}
 
 	public void initializeConfig() throws IOException {
@@ -62,6 +65,35 @@ public class App extends JavaPlugin {
 			playerMap.put("rank", "Member");
 			playerConfig.createSection(player.getUniqueId().toString(), playerMap);
 			modifyPlayerRanks.save(playerRanks);
+		}
+	}
+
+	public void updatePlayerRank(String playerName, String newRank, Player currentPlayer) throws IOException {
+		OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(playerName);
+
+		if (offlinePlayer == null) {
+			currentPlayer.sendMessage("Offline " + playerName + " does not exist in Minecraft. Unable to set rank.");
+			return;
+		}
+
+		UUID uuid = offlinePlayer.getUniqueId();
+
+		ConfigurationSection playerConfig;
+		playerConfig = modifyPlayerRanks.getConfigurationSection("players");
+		if (playerConfig == null) {
+			playerConfig = modifyPlayerRanks.createSection("players");
+		}
+
+		if (playerConfig.contains(uuid.toString())) {
+			HashMap<String, String> playerMap = new HashMap<String, String>();
+			playerMap.put("playerName", playerName);
+			playerMap.put("rank", newRank);
+			playerConfig.createSection(uuid.toString(), playerMap);
+			modifyPlayerRanks.save(playerRanks);
+			currentPlayer.sendMessage("Updated " + playerName + " to " + newRank + " rank.");
+		} else {
+			currentPlayer.sendMessage(playerName + " has not joined this server yet. Unable to set rank.");
+			return;
 		}
 	}
 

@@ -3,3 +3,15 @@ main: com.briangershon.ranktank.App
 description: A Minecraft plugin for assigning players a rank and showing top ranks on a scoreboard.
 version: ${project.version}
 api-version: 1.13
+permissions:
+    ranktank.*:
+        description: Gives access to all ranktank commands
+        children:
+            ranktank.set: true
+        default: op
+    ranktank.set:
+        description: Allows you to set rank for a user
+        default: op
+commands:
+  ranktank:
+    description: Update a player's rank
