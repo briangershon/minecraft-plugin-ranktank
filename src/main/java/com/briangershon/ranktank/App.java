@@ -110,7 +110,13 @@ public class App extends JavaPlugin {
 			ConfigurationSection c = playerConfig.getConfigurationSection(uuid);
 			String playerName = c.getString("playerName");
 			String rank = c.getString("rank");
-			players.add(playerName + " " + ChatColor.RED.toString() + ChatColor.BOLD.toString() + rank);
+			String row = playerName + " " + ChatColor.RED.toString() + ChatColor.BOLD.toString() + rank;
+			// limit to 40 characters which is the max for a Score line
+			if (row.length() < 40) {
+				players.add(row);
+			} else {
+				players.add(row.substring(0, 40));
+			}
 		});
 
 		return players;
