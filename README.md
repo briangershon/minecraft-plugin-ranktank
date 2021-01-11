@@ -4,20 +4,22 @@ A Minecraft plugin for assigning players a rank and showing top ranks on a score
 
     /ranktank <playerName> <newRank>
 
-All players joining the server will start at the `Member` rank.
+`<playerName>` is an valid Minecraft player name. `<newRank>` can be any one-word value (no spaces).
 
-Ranks are (highest rank listed first):
+<!-- Ranks are (highest rank listed first):
 
 1. MVP++
 2. MVP+
 3. MVP
 4. VIP+
 5. VIP
-6. Member (default)
+6. Member (default) -->
 
-Player data is saved on the server in a custom YAML file.
+Notes:
 
-To run `/ranktank` a player needs to have the `ranktank.set` permission, which is on for Operators.
+- All players joining the server will start at the `Member` rank.
+- Player data is saved on the server in a custom YAML file.
+- What server permissions are needed to run the `/ranktank` command? Player needs to have the `ranktank.set` permission, which is on by default for Operators.
 
 ## Which server API does this plugin run on?
 
