@@ -97,27 +97,6 @@ public class App extends JavaPlugin {
 		}
 	}
 
-	public String colorForRank(String rank) {
-		ChatColor c = ChatColor.GOLD;
-
-		switch (rank.toLowerCase()) {
-		case "member":
-			c = ChatColor.RED;
-		case "vip":
-			c = ChatColor.GREEN;
-		case "vip+":
-			c = ChatColor.DARK_GREEN;
-		case "mvp":
-			c = ChatColor.BLUE;
-		case "mvp+":
-			c = ChatColor.GRAY;
-		case "mvp++":
-			c = ChatColor.DARK_GRAY;
-		}
-
-		return c.toString();
-	}
-
 	public List<String> getTopPlayers() {
 		List<String> players = new ArrayList<>();
 
@@ -127,11 +106,18 @@ public class App extends JavaPlugin {
 			return players;
 		}
 
+		Leaderboard board = new Leaderboard();
+
 		playerConfig.getKeys(false).forEach((uuid) -> {
 			ConfigurationSection c = playerConfig.getConfigurationSection(uuid);
 			String playerName = c.getString("playerName");
 			String rank = c.getString("rank");
-			String row = playerName + " " + colorForRank(rank) + ChatColor.BOLD.toString() + rank;
+			board.addRow(playerName, rank);
+		});
+
+		board.getTopPlayers().forEach((leaderboardRow) -> {
+			String row = leaderboardRow.getPlayerName() + " " + leaderboardRow.getRankColor()
+					+ ChatColor.BOLD.toString() + leaderboardRow.getRank();
 			// limit to 40 characters which is the max for a Score line
 			if (row.length() < 40) {
 				players.add(row);
