@@ -6,14 +6,17 @@ A Minecraft plugin for assigning players a rank and showing top ranks on a score
 
 `<playerName>` is an valid Minecraft player name. `<newRank>` can be any one-word value (no spaces).
 
-<!-- Ranks are (highest rank listed first):
+However if your rank is on the following list, it will be color-coded and sorted from highest to lowest.
 
-1. MVP++
+Ranks are:
+
+1. MVP++ (highest rank)
 2. MVP+
 3. MVP
 4. VIP+
 5. VIP
-6. Member (default) -->
+6. Member (default)
+7. (any other text not on the list) (lowest rank)
 
 Notes:
 
