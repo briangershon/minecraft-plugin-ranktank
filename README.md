@@ -2,6 +2,10 @@
 
 A Minecraft plugin for assigning players a rank and showing top ranks on a scoreboard.
 
+<img src="screenshot.png" width="800" height="561">
+
+Command:
+
     /ranktank <playerName> <newRank>
 
 `<playerName>` is an valid Minecraft player name. `<newRank>` can be any one-word value (no spaces).
