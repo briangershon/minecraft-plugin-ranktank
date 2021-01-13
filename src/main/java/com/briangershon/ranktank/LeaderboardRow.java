@@ -33,6 +33,12 @@ public class LeaderboardRow {
 		case "vip+":
 			c = ChatColor.DARK_GREEN;
 			break;
+		case "crafty":
+			c = ChatColor.DARK_PURPLE;
+			break;
+		case "crafty+":
+			c = ChatColor.LIGHT_PURPLE;
+			break;
 		case "mvp":
 			c = ChatColor.DARK_BLUE;
 			break;
@@ -48,7 +54,7 @@ public class LeaderboardRow {
 	}
 
 	public int getOrder() {
-		int order = 0;
+		int order = 0; // default for any rank not on this list
 
 		switch (this.rank.toLowerCase()) {
 		case "member":
@@ -60,14 +66,20 @@ public class LeaderboardRow {
 		case "vip+":
 			order = 3;
 			break;
-		case "mvp":
+		case "crafty":
 			order = 4;
 			break;
-		case "mvp+":
+		case "crafty+":
 			order = 5;
 			break;
-		case "mvp++":
+		case "mvp":
 			order = 6;
+			break;
+		case "mvp+":
+			order = 7;
+			break;
+		case "mvp++":
+			order = 8;
 			break;
 		}
 

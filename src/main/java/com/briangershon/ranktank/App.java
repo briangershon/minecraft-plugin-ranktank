@@ -116,7 +116,7 @@ public class App extends JavaPlugin {
 		});
 
 		board.getTopPlayers().forEach((leaderboardRow) -> {
-			String row = leaderboardRow.getPlayerName() + " " + leaderboardRow.getRankColor()
+			String row = ChatColor.RED.toString() + "[" + ChatColor.WHITE.toString() + leaderboardRow.getPlayerName() + ChatColor.RED.toString() + "] " + leaderboardRow.getRankColor()
 					+ ChatColor.BOLD.toString() + leaderboardRow.getRank();
 			// limit to 40 characters which is the max for a Score line
 			if (row.length() < 40) {
@@ -132,7 +132,7 @@ public class App extends JavaPlugin {
 	public void buildSidebar(Player player) {
 		Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
 		Objective obj = board.registerNewObjective("rank", "crit", "objname");
-		obj.setDisplayName(ChatColor.YELLOW.toString() + ChatColor.BOLD.toString() + "Top Ranks");
+		obj.setDisplayName(ChatColor.RED.toString() + ChatColor.BOLD.toString() + "| " + ChatColor.YELLOW.toString() + ChatColor.BOLD.toString() + "Top Ranks" + ChatColor.RED.toString() + ChatColor.BOLD.toString() + " |");
 		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
 
 		List<String> top = getTopPlayers();

@@ -13,10 +13,12 @@ Ranks are:
 1. MVP++ (highest rank)
 2. MVP+
 3. MVP
-4. VIP+
-5. VIP
-6. Member (default)
-7. (any other text not on the list) (lowest rank)
+4. Crafty+
+5. Crafty
+6. VIP+
+7. VIP
+8. Member (default)
+9. (any other text not on the list) (lowest rank)
 
 Notes:
 
